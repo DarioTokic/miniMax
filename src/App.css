@@ -1,38 +1,81 @@
 .App {
-  text-align: center;
+    height: 100vh;
+    background-image: url(https://w.wallhaven.cc/full/r2/wallhaven-r2ll67.png);
+    background-position: center;
+    background-size: cover;
 }
 
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+    width: 400px;
+    position: absolute;
+    left: 50%;
+    margin-left: -200px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+td {
+    border: 8px solid #fff;
+    height: 100px;
+    width: 100px;
+    text-align: center;
+    vertical-align: middle;
+    font: "Comic Sans MS", cursive, sans-serif;
+    font-size: 70px;
+    cursor: pointer;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+table {
+    border-collapse: collapse;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    margin-left: -155px;
+    top: 330px;
 }
 
-.App-link {
-  color: #61dafb;
+table tr:first-child td {
+    border-top: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+table tr:last-child td {
+    border-bottom: none;
+}
+
+table tr td:first-child {
+    border-left: none;
+}
+
+table tr td:last-child {
+    border-right: none;
+}
+
+.About {
+    background-color: #96281B;
+    color: #fff;
+    width: 600px;
+    padding: 32px;
+    box-sizing: border-box;
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    margin-left: -300px;
+}
+
+.About button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    margin-left: 500px;
+}
+
+.App-about-btn {
+    background: none;
+    border: none;
+    color: #96281B;
+    font-size: 2rem;
+    position: absolute;
+    left: 50%;
+    bottom: 20px;
+    margin-left: -52px;
+    cursor: pointer;
 }

@@ -7,7 +7,20 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+@font-face {
+  font-family: "RO twimch";
+  src: local("RO twimch"),
+    url("./fonts/RoTwimchRegular-WyR3n.ttf") format("truetype");
+    font-weight: regular;
+}
+
+.font-face-gm {
+  font-family: "RO twimch";
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
