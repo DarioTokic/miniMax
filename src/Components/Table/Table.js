@@ -96,9 +96,9 @@ class Table extends Component {
         let availableSpots = this.emptyTilesFinder(newBoard);
 
         if(this.checkWinHandler(newBoard, this.state.personPlayer))
-            return {score: -10}
+            return {score: -1}
         else if(this.checkWinHandler(newBoard, this.state.aiPlayer))
-            return {score: 10}
+            return {score: 1}
         else if (availableSpots.length === 0) {
             return {score: 0};
         }
@@ -125,7 +125,7 @@ class Table extends Component {
 
         let bestMove;
         if(player === this.state.aiPlayer) {
-            let bestScore = -10000;
+            let bestScore = -10;
             for(let i = 0; i < moves.length; i++) {
                 if(moves[i].score > bestScore) {
                     bestScore = moves[i].score;
@@ -134,7 +134,7 @@ class Table extends Component {
             }
         }
         else {
-            let bestScore = 10000;
+            let bestScore = 10;
             for(let i = 0; i < moves.length; i++) {
                 if(moves[i].score < bestScore) {
                     bestScore = moves[i].score;
