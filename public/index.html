@@ -15,7 +15,17 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div id="root" style="
+      background-image: url(./img/minimaxWallpaper.png);
+      background-size: cover;
+      background-position: center;"></div>
   </body>
 
+  <script>
+    const el = document.querySelector("#root");
+    el.addEventListener("mousemove", (e) => {
+      el.style.backgroundPositionX = -e.clientX/50 + "px";
+      el.style.backgroundPositionY = -e.clientY/50 + "px";
+    });
+  </script>
 </html>

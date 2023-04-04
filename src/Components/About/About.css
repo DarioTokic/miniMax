@@ -1,0 +1,19 @@
+.About {
+    background-color: #96281B;
+    color: #fff;
+    width: 600px;
+    padding: 32px;
+    box-sizing: border-box;
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    margin-left: -300px;
+}
+
+.About button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    margin-left: 500px;
+}
