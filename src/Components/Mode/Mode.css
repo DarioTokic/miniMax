@@ -25,3 +25,20 @@
 .Active {
     background-color: #96281B;
 }
+
+
+@media (max-width: 500px) {
+   .Mode {
+    top: 62px;
+   }
+
+   .Mode button {
+    font-size: 1rem;
+   }
+}
+
+@media (max-width: 340px) {
+    .Mode button {
+     font-size: 0.8rem;
+    }
+ }

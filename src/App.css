@@ -22,3 +22,10 @@
     margin-left: -52px;
     cursor: pointer;
 }
+
+@media (max-width: 500px) {
+    .App-logo {
+        width: 200px;
+        margin-left: -100px;
+    }
+}

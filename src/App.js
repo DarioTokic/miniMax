@@ -48,12 +48,12 @@ class App extends Component {
 
         
 
+        <button onClick={() =>this.showAboutHandler()} className='App-about-btn font-face-gm'>about</button>
 
         { this.state.aboutToggle ?
           <About clicked={() => this.showAboutHandler()}/>
         : null
         }
-        <button onClick={() =>this.showAboutHandler()} className='App-about-btn font-face-gm'>about</button>
       </div>
     );
   }

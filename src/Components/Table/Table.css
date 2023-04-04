@@ -13,8 +13,9 @@ table {
     border-radius: 50%;
     position: absolute;
     left: 50%;
-    margin-left: -180px;
-    top: 340px;
+    top: 50%;
+    margin-left: -160px;
+    margin-top: -160px;
     color: #fff;
 }
 
@@ -32,4 +33,29 @@ table tr td:first-child {
 
 table tr td:last-child {
     border-right: none;
+}
+
+@media (max-width: 500px) {
+    td {
+        height: 80px;
+        width: 80px;
+    }
+
+    table {
+        margin-left: -130px;
+        margin-top: -130px;
+    }
+}
+
+@media (max-width: 340px) {
+    td {
+        height: 50px;
+        width: 50px;
+        font-size: 48px;
+    }
+
+    table {
+        margin-left: -90px;
+        margin-top: -90px;
+    }
 }

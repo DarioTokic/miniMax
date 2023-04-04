@@ -17,3 +17,40 @@
     font-size: 2rem;
     margin-left: 500px;
 }
+
+@media (max-width: 500px) {
+    .About {
+        width: 90%;
+        top: 14%;
+        margin-left: -45%;
+        padding: 16px;
+    }
+
+    .About button {
+        margin-left: 90%;
+    }
+ }
+
+ @media (max-width: 400px) {
+    .About p {
+        font-size: 0.9rem;
+    }
+ }
+ 
+
+ @media (max-width: 340px) {
+    .About {
+        width: 92%;
+        top: 2%;
+        margin-left: -46%;
+        padding: 10px;
+    }
+
+    .About p {
+        font-size: 0.78rem;
+    }
+
+    .About button {
+        font-size: 1.6rem;
+    }
+ }
