@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './Table.css'
 
 class Table extends Component {
-    
 
     state = {
         originalBoard: Array.from(Array(9).keys()),
@@ -17,13 +16,23 @@ class Table extends Component {
             [2, 5, 8],
             [0, 4, 8],
             [2, 4, 6]
-        ]
+        ],
+        initialized: false
     }
 
     componentDidMount() {
+
+        if (!this.state.initialized && this.props.firstPlayer === "second") {
+            if(!this.checkWinHandler(this.state.originalBoard, this.state.personPlayer) && !this.checkTie())
+                this.turnHandler(0, this.state.aiPlayer);
+
+            this.setState({initialized: true});
+        }
+            
         for(let i = 0; i < 9; i++) {
             document.getElementById(i).addEventListener('click', this.choseTileHandler);
         }
+
     }
 
     componentWillUnmount() {
@@ -48,6 +57,9 @@ class Table extends Component {
         this.setState({originalBoard: newBoard});
         document.getElementById(tileId).innerText = player;
         document.getElementById(tileId).removeEventListener('click', this.choseTileHandler, false)
+
+        this.checkTie()
+
 
         let gameWon = this.checkWinHandler(this.state.originalBoard, player);
         if(gameWon) this.gameOver(gameWon);
@@ -83,7 +95,7 @@ class Table extends Component {
 
     bestTileFinder = () => {
 
-        if(this.props.mode === "dummy") {
+        if(this.props.mode === "first") {
             const emptyTiles = this.emptyTilesFinder(this.state.originalBoard);
             const randomIndex = Math.floor(Math.random() * emptyTiles.length);
             return emptyTiles[randomIndex];
@@ -160,6 +172,20 @@ class Table extends Component {
             cell.removeEventListener('click', this.choseTileHandler)
         }
         this.declareWinnerHandler(gameWon.player === this.state.personPlayer ? "You Won!" : "You lost")
+    }
+
+    clean = () => {
+        this.setState({originalBoard: Array.from(Array(9).keys())})
+        for(let i = 0; i < 9; i++) {
+            document.getElementById(i).addEventListener('click', this.choseTileHandler);
+            document.getElementById(i).innerText = "";
+        }
+
+        if(this.props.firstPlayer === "second") {
+            document.getElementById(0).removeEventListener('click', this.choseTileHandler);
+            document.getElementById(0).innerText = this.state.aiPlayer;
+        }
+            
     }
 
     render() {

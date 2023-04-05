@@ -1,0 +1,44 @@
+.Switch {
+    display: flex;
+    justify-content: space-between;
+    background-color: #7a1d13;
+    border-radius: 50px;
+    margin-bottom: 16px;
+}
+
+.Switch button {
+    border: none;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 16px;
+    border-radius: 50px;
+    transition: all 0.3s;
+}
+
+
+
+.Inactive {
+    background-color: #7a1d13;
+}
+
+.Active {
+    background-color: #96281B;
+}
+
+
+@media (max-width: 500px) {
+   .Switch {
+    top: 62px;
+   }
+
+   .Switch button {
+    font-size: 1rem;
+   }
+}
+
+@media (max-width: 340px) {
+    .Switch button {
+     font-size: 0.8rem;
+    }
+ }

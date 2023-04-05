@@ -11,6 +11,12 @@
     margin-left: -200px;
 }
 
+.Switches {
+    position: absolute;
+    right: 24px;
+    top: 24px;
+}
+
 .App-about-btn {
     background: none;
     border: none;

@@ -5,15 +5,19 @@ import About from './Components/About/About';
 import Table from './Components/Table/Table';
 import Endgame from './Components/Endgame/Endgame';
 import Mode from './Components/Mode/Mode';
+import Switch from './Components/Switch/Switch';
 
 class App extends Component {
 
+  tableRef = React.createRef();
 
   state = {
     aboutToggle: false,
     game: true,
     ending: "",
-    mode: "god"
+    multiplayer: "first", //first means ai second means multiplayer
+    mode: "first", //first means dummy second means godmode
+    firstPlayer: "first" //first means person plays first second means ai plays first
   }
 
   showAboutHandler() {
@@ -31,7 +35,31 @@ class App extends Component {
 
   changeMode = (mode) => {
     this.setState({mode})
+    this.refreshGame()
   }
+
+  changeFirstPlayer = (firstPlayer) => {
+    this.setState({firstPlayer})
+    this.setState({game: false})
+    this.setState({ending: ""})
+  }
+
+  changeMultiplayer = (multiplayer) => {
+    this.setState({multiplayer})
+    this.refreshGame()
+  }
+
+  refreshGame = () => {
+
+    if(!this.state.game) 
+      this.setState({game: true})
+    else {
+      this.tableRef.current.clean();
+      console.log(this.state.firstPlayer)
+    }
+  }
+
+  //<Mode switchTo={(mode) => this.changeMode(mode)} mode={this.state.mode} />
 
   render() {
 
@@ -39,10 +67,23 @@ class App extends Component {
       <div className='App font-face-gm'>
         <img src={logo} className="App-logo" alt="logo" />
 
-        <Mode switchTo={(mode) => this.changeMode(mode)} mode={this.state.mode} />
+        <div className='Switches'>
+          <Switch switchTo={(multiplayer) => this.changeMultiplayer(multiplayer)} mode={this.state.multiplayer} firstText="ai" secondText="multiplayer" />
+          {this.state.multiplayer === "first" ?
+          <Switch switchTo={(mode) => this.changeMode(mode)} mode={this.state.mode} firstText="dummy" secondText="god" />
+          : null
+          }
+          {this.state.multiplayer === "first" ?
+          <Switch switchTo={(firstPlayer) => this.changeFirstPlayer(firstPlayer)} mode={this.state.firstPlayer} firstText="first" secondText="second" />
+          : null
+          }
+          
+        </div>
+        
+
         
         {this.state.game ?
-          <Table endgame={(ending) => this.endGameHandler(ending)} mode={this.state.mode} /> :
+          <Table ref={this.tableRef} endgame={(ending) => this.endGameHandler(ending)} mode={this.state.mode} firstPlayer={this.state.firstPlayer} /> :
           <Endgame click={() =>this.startGameHandler()} outcome={this.state.ending}/> 
         }  
 
