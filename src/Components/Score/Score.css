@@ -7,6 +7,10 @@
     color: #fff;
 }
 
+.Score p {
+    user-select: none;
+}
+
 @media (max-width: 900px) {
     .Score {
         top: 44px;
