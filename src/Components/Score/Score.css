@@ -1,0 +1,8 @@
+.Score {
+    position: absolute;
+    left: 24px;
+    top: 24px;
+    font-size: 2rem;
+    padding: 16px;
+    color: #fff;
+}

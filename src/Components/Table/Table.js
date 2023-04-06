@@ -43,6 +43,8 @@ class Table extends Component {
     }
 
     choseTileHandler = (tile) => {
+        if(this.props.multiplayer === "first")
+            this.setState({currentPlayer: this.state.personPlayer})
         if(typeof this.state.originalBoard[tile.target.id] == "number")
             this.turnHandler(tile.target.id, this.state.currentPlayer);
             if (this.props.multiplayer === "second") {
@@ -182,7 +184,10 @@ class Table extends Component {
             const cell = document.getElementById(i);
             cell.removeEventListener('click', this.choseTileHandler)
         }
-        this.declareWinnerHandler(gameWon.player === this.state.personPlayer ? "You Won!" : "You lost")
+        if (this.props.multiplayer === "first")
+            this.declareWinnerHandler(gameWon.player === this.state.personPlayer ? "You Won!" : "You lost")
+        else
+            this.declareWinnerHandler(this.state.currentPlayer + " won")
     }
 
     clean = () => {

@@ -5,6 +5,7 @@ import About from './Components/About/About';
 import Table from './Components/Table/Table';
 import Endgame from './Components/Endgame/Endgame';
 import Switch from './Components/Switch/Switch';
+import Score from './Components/Score/Score';
 
 class App extends Component {
 
@@ -16,7 +17,9 @@ class App extends Component {
     ending: "",
     multiplayer: "first", //first means ai second means multiplayer
     mode: "first", //first means dummy second means godmode
-    firstPlayer: "first" //first means person plays first second means ai plays first
+    firstPlayer: "first", //first means person plays first second means ai plays first
+    scoreO: 0,
+    scoreX: 0,
   }
 
   isTouchDevice() {
@@ -50,6 +53,18 @@ class App extends Component {
   endGameHandler(ending) {
     this.setState({game: false})
     this.setState({ending})
+    console.log(ending)
+    if(ending === "You lost" || ending === "X won") {
+      this.setState(prevState => { return {scoreX: (prevState.scoreX + 1)}})
+      console.log("scoreX++")
+    }
+    else if(ending === "You Won!" || ending === "O won") {
+      this.setState(prevState => { return {scoreO: (prevState.scoreO + 1)}})
+      console.log("scoreO++")
+    }
+
+    console.log(this.state.scoreO)
+    console.log(this.state.scoreX)
   }
 
   changeMode = (mode) => {
@@ -77,6 +92,8 @@ class App extends Component {
       this.tableRef.current.clean();
       console.log(this.state.firstPlayer)
     }
+
+    this.setState({scoreO: 0, scoreX: 0})
   }
 
   //<Mode switchTo={(mode) => this.changeMode(mode)} mode={this.state.mode} />
@@ -86,6 +103,8 @@ class App extends Component {
     return (
       <div className='App font-face-gm'>
         <img src={logo} className="App-logo" alt="logo" />
+
+        <Score scoreO={this.state.scoreO} scoreX={this.state.scoreX} />
 
         <div className='Switches'>
           <Switch switchTo={(multiplayer) => this.changeMultiplayer(multiplayer)} mode={this.state.multiplayer} firstText="ai" secondText="multiplayer" />
