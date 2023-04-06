@@ -28,8 +28,15 @@ class App extends Component {
 
   componentDidMount() {
     const el = document.querySelector(".App");
-  
-    if (this.isTouchDevice()) {
+
+    if (window.DeviceOrientationEvent) {
+      window.addEventListener("deviceorientation", (e) => {
+        const x = e.beta; // rotation around x-axis
+        const y = e.gamma; // rotation around y-axis
+        el.style.backgroundPositionX = -x/10 + "px";
+        el.style.backgroundPositionY = -y/10 + "px";
+      });
+    } else if (this.isTouchDevice()) {
       el.addEventListener("touchmove", (e) => {
         el.style.backgroundPositionX = "0";
         el.style.backgroundPositionY = "0";
