@@ -8,6 +8,10 @@ td {
     cursor: pointer;
 }
 
+.X {
+    border: 8px solid #7a1d13;
+}
+
 table {
     border-collapse: collapse;
     border-radius: 50%;

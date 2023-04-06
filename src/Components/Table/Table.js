@@ -208,19 +208,19 @@ class Table extends Component {
         return (
             <table>
               <tr>
-                  <td className="cell" id="0"></td>
-                  <td className="cell" id="1"></td>
-                  <td className="cell" id="2"></td>
+                  <td className={this.state.currentPlayer + " cell"} id="0"></td>
+                  <td className={this.state.currentPlayer + " cell"} id="1"></td>
+                  <td className={this.state.currentPlayer + " cell"} id="2"></td>
               </tr>
               <tr>
-                  <td className="cell" id="3"></td>
-                  <td className="cell" id="4"></td>
-                  <td className="cell" id="5"></td>
+                  <td className={this.state.currentPlayer + " cell"} id="3"></td>
+                  <td className={this.state.currentPlayer + " cell"} id="4"></td>
+                  <td className={this.state.currentPlayer + " cell"} id="5"></td>
               </tr>
               <tr>
-                  <td className="cell" id="6"></td>
-                  <td className="cell" id="7"></td>
-                  <td className="cell" id="8"></td>
+                  <td className={this.state.currentPlayer + " cell"} id="6"></td>
+                  <td className={this.state.currentPlayer + " cell"} id="7"></td>
+                  <td className={this.state.currentPlayer + " cell"} id="8"></td>
               </tr>
           </table>
         )

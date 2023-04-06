@@ -53,18 +53,12 @@ class App extends Component {
   endGameHandler(ending) {
     this.setState({game: false})
     this.setState({ending})
-    console.log(ending)
     if(ending === "You lost" || ending === "X won") {
       this.setState(prevState => { return {scoreX: (prevState.scoreX + 1)}})
-      console.log("scoreX++")
     }
     else if(ending === "You Won!" || ending === "O won") {
       this.setState(prevState => { return {scoreO: (prevState.scoreO + 1)}})
-      console.log("scoreO++")
     }
-
-    console.log(this.state.scoreO)
-    console.log(this.state.scoreX)
   }
 
   changeMode = (mode) => {
@@ -90,7 +84,6 @@ class App extends Component {
       this.setState({game: true})
     else {
       this.tableRef.current.clean();
-      console.log(this.state.firstPlayer)
     }
 
     this.setState({scoreO: 0, scoreX: 0})
