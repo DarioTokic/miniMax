@@ -29,12 +29,12 @@ class App extends Component {
   componentDidMount() {
     const el = document.querySelector(".App");
 
-    if (window.DeviceOrientationEvent) {
+    if (window.DeviceOrientationEvent && 'ontouchstart' in window) {
       window.addEventListener("deviceorientation", (e) => {
         const x = e.beta; // rotation around x-axis
         const y = e.gamma; // rotation around y-axis
-        el.style.backgroundPositionX = -x/2 + "px";
-        el.style.backgroundPositionY = -y/2 + "px";
+        el.style.backgroundPositionX = -x * 10 + "px";
+        el.style.backgroundPositionY = -y * 10 + "px";
       });
     } else if (this.isTouchDevice()) {
       el.addEventListener("touchmove", (e) => {
@@ -47,6 +47,7 @@ class App extends Component {
         el.style.backgroundPositionY = -e.clientY/50 + "px";
       });
     }
+
   }
 
   showAboutHandler() {
