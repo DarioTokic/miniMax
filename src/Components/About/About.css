@@ -6,8 +6,8 @@
     box-sizing: border-box;
     position: absolute;
     left: 50%;
-    top: 25%;
-    margin-left: -300px;
+    top: 50%;
+    transform: translate(-50%, -50%); /* Use transform to center the element */
 }
 
 .About button {
@@ -21,8 +21,6 @@
 @media (max-width: 500px) {
     .About {
         width: 90%;
-        top: 14%;
-        margin-left: -45%;
         padding: 16px;
     }
 
@@ -41,8 +39,6 @@
  @media (max-width: 340px) {
     .About {
         width: 92%;
-        top: 2%;
-        margin-left: -46%;
         padding: 10px;
     }
 

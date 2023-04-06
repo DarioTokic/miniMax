@@ -33,12 +33,27 @@
    }
 
    .Switch button {
-    font-size: 1rem;
+    font-size: 0.8rem;
    }
 }
 
+@media (max-width: 400px) {
+    .Switch {
+        margin-bottom: 12px;
+    }
+    .Switch button{
+
+        padding: 12px;
+    }
+}
+
 @media (max-width: 340px) {
+    .Switch {
+        margin-bottom: 10px;
+    }
+
     .Switch button {
-     font-size: 0.8rem;
+        padding: 10px;
+        font-size: 0.8rem;
     }
  }

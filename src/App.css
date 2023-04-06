@@ -3,8 +3,8 @@
     background-image: url(./minimaxWallpaper.png);
     background-size: cover;
     background-position: center;
-
 }
+
 
 .App-logo {
     width: 400px;
@@ -39,9 +39,24 @@
     cursor: pointer;
 }
 
+@media (max-width: 900px) {
+    .Switches {
+        top: 84px;
+    }
+}
+
 @media (max-width: 500px) {
     .App-logo {
         width: 200px;
         margin-left: -100px;
+    }
+    .Switches {
+        top: 64px;
+    }
+}
+
+@media (max-width: 340px) {
+    .Switches {
+        top: 52px;
     }
 }

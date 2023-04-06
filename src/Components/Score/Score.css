@@ -1,8 +1,27 @@
 .Score {
     position: absolute;
-    left: 24px;
-    top: 24px;
+    left: 32px;
+    top: 32px;
     font-size: 2rem;
-    padding: 16px;
+    padding-bottom: 16px;
     color: #fff;
+}
+
+@media (max-width: 900px) {
+    .Score {
+        top: 44px;
+    }
+}
+
+@media (max-width: 500px) {
+    .Score {
+        top: 32px;
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 340px) {
+    .Score {
+        font-size: 1.2rem;
+    }
 }
