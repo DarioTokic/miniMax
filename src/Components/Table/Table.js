@@ -17,7 +17,8 @@ class Table extends Component {
             [0, 4, 8],
             [2, 4, 6]
         ],
-        initialized: false
+        initialized: false,
+        currentPlayer: 'O'
     }
 
     componentDidMount() {
@@ -43,10 +44,20 @@ class Table extends Component {
 
     choseTileHandler = (tile) => {
         if(typeof this.state.originalBoard[tile.target.id] == "number")
-            this.turnHandler(tile.target.id, this.state.personPlayer);
-            if(!this.checkWinHandler(this.state.originalBoard, this.state.personPlayer) && !this.checkTie())
-                this.turnHandler(this.bestTileFinder(), this.state.aiPlayer);
+            this.turnHandler(tile.target.id, this.state.currentPlayer);
+            if (this.props.multiplayer === "second") {
+                if(this.state.currentPlayer === this.state.personPlayer)
+                    this.setState({currentPlayer: this.state.aiPlayer})
+                else
+                    this.setState({currentPlayer: this.state.personPlayer})
+            }
             
+            if(!this.checkWinHandler(this.state.originalBoard, this.state.personPlayer) && !this.checkTie())
+                if(this.props.multiplayer === "first")
+                    this.turnHandler(this.bestTileFinder(), this.state.aiPlayer);
+                
+        
+        
                 
         tile.target.removeEventListener('click', this.choseTileHandler)
     }

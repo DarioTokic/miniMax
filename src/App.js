@@ -65,6 +65,7 @@ class App extends Component {
 
   changeMultiplayer = (multiplayer) => {
     this.setState({multiplayer})
+    this.setState({firstPlayer: "first"})
     this.refreshGame()
   }
 
