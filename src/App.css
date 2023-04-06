@@ -1,5 +1,8 @@
 .App {
     height: 100vh;
+    background-image: url(./minimaxWallpaper.png);
+    background-size: cover;
+    background-position: center;
 
 }
 
@@ -15,6 +18,13 @@
     position: absolute;
     right: 24px;
     top: 24px;
+}
+
+.GameContainer{
+    height: 100vh;
+    background-image: url(./minimaxMoon.png);
+    background-size: cover;
+    background-position: center;
 }
 
 .App-about-btn {

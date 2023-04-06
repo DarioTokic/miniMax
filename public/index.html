@@ -15,34 +15,5 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root" style="
-      background-image: url(./img/minimaxWallpaper.png);
-      background-size: cover;
-      background-position: center;"></div>
+    <div id="root"></div>
   </body>
-
-  <script>
-   const el = document.querySelector("#root");
-
-// Function to check if the device has touch input
-function isTouchDevice() {
-  return 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
-}
-
-// Add event listener for touch events
-if (isTouchDevice()) {
-  el.addEventListener("touchmove", (e) => {
-    // Disable the parallax effect on touch devices
-    el.style.backgroundPositionX = "0";
-    el.style.backgroundPositionY = "0";
-  });
-} else {
-  // Add event listener for mousemove event
-  el.addEventListener("mousemove", (e) => {
-    el.style.backgroundPositionX = -e.clientX/50 + "px";
-    el.style.backgroundPositionY = -e.clientY/50 + "px";
-  });
-}
-
-  </script>
-</html>

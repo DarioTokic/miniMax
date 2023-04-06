@@ -4,7 +4,6 @@ import logo from './minimax.png';
 import About from './Components/About/About';
 import Table from './Components/Table/Table';
 import Endgame from './Components/Endgame/Endgame';
-import Mode from './Components/Mode/Mode';
 import Switch from './Components/Switch/Switch';
 
 class App extends Component {
@@ -18,6 +17,26 @@ class App extends Component {
     multiplayer: "first", //first means ai second means multiplayer
     mode: "first", //first means dummy second means godmode
     firstPlayer: "first" //first means person plays first second means ai plays first
+  }
+
+  isTouchDevice() {
+    return 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
+  }
+
+  componentDidMount() {
+    const el = document.querySelector(".App");
+  
+    if (this.isTouchDevice()) {
+      el.addEventListener("touchmove", (e) => {
+        el.style.backgroundPositionX = "0";
+        el.style.backgroundPositionY = "0";
+      });
+    } else {
+      el.addEventListener("mousemove", (e) => {
+        el.style.backgroundPositionX = -e.clientX/50 + "px";
+        el.style.backgroundPositionY = -e.clientY/50 + "px";
+      });
+    }
   }
 
   showAboutHandler() {
@@ -81,11 +100,19 @@ class App extends Component {
         </div>
         
 
-        
-        {this.state.game ?
-          <Table ref={this.tableRef} endgame={(ending) => this.endGameHandler(ending)} mode={this.state.mode} firstPlayer={this.state.firstPlayer} /> :
-          <Endgame click={() =>this.startGameHandler()} outcome={this.state.ending}/> 
-        }  
+        <div className='GameContainer'>
+          {this.state.game ?
+            <Table 
+              ref={this.tableRef} 
+              endgame={(ending) => this.endGameHandler(ending)} 
+              mode={this.state.mode} 
+              firstPlayer={this.state.firstPlayer} 
+              multiplayer={this.state.multiplayer}
+              /> :
+            <Endgame click={() =>this.startGameHandler()} outcome={this.state.ending}/> 
+          } 
+        </div>
+         
 
         
 
