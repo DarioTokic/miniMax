@@ -1,6 +1,11 @@
 import React from 'react';
 import './About.css'
 
+/**
+ * A functional component that displays information about the minimax algorithm and how it is used in the context of tic tac toe
+ * @param {Object} props - The props object that contains a clicked function to close the about screen.
+ * @returns {JSX.Element} - The rendered About component.
+ */
 const about = (props) => (
     <div className='About'>
           
