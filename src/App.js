@@ -94,9 +94,13 @@ class App extends Component {
     this.setState({game: false})
     this.setState({ending})
     if(ending === "You lost" || ending === "X won") {
+      let lossAudio = new Audio("/loss.wav")
+      lossAudio.play()
       this.setState(prevState => { return {scoreX: (prevState.scoreX + 1)}})
     }
     else if(ending === "You Won!" || ending === "O won") {
+      let winAudio = new Audio("/win.wav")
+      winAudio.play()
       this.setState(prevState => { return {scoreO: (prevState.scoreO + 1)}})
     }
   }

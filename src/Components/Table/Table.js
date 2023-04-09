@@ -68,6 +68,9 @@ class Table extends Component {
      * @param {Object} tile - The tile object that player selected 
      */
     choseTileHandler = (tile) => {
+        const clickAudio = new Audio("/click.wav")
+        clickAudio.play()
+
         if(this.props.multiplayer === "first")
             this.setState({currentPlayer: this.state.personPlayer})
         if(typeof this.state.originalBoard[tile.target.id] == "number")
@@ -84,6 +87,7 @@ class Table extends Component {
                     this.turnHandler(this.bestTileFinder(), this.state.aiPlayer);
            
         tile.target.removeEventListener('click', this.choseTileHandler)
+
     }
 
     /**
@@ -147,6 +151,8 @@ class Table extends Component {
                 document.getElementById(i).removeEventListener('click', this.choseTileHandler, false)
             }
             this.declareWinnerHandler("It's a tie");
+            const tieAudio = new Audio("/tie.wav");
+            tieAudio.play()
             return true;
         }
         return false;
