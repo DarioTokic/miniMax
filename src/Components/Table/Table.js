@@ -178,6 +178,10 @@ class Table extends Component {
      */
     minimax = (newBoard, player) => {
 
+         // Find all available spots on the board.
+         var moves = []
+         let availableSpots = this.emptyTilesFinder(newBoard);
+
         // Check if the game has ended and return the appropriate score.
         if(this.checkWinHandler(newBoard, this.state.personPlayer))
             return {score: -1}
@@ -187,9 +191,6 @@ class Table extends Component {
             return {score: 0};
         }
 
-        // Find all available spots on the board.
-        var moves = []
-        let availableSpots = this.emptyTilesFinder(newBoard);
 
         // Loop through available spots and recursively call minimax to calculate the score for each possible move
         for(let i = 0; i < availableSpots.length; i++) {

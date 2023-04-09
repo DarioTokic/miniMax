@@ -33,13 +33,13 @@
    }
 
    .Switch button {
-    font-size: 0.8rem;
+    font-size: 0.6rem;
    }
 }
 
 @media (max-width: 400px) {
     .Switch {
-        margin-bottom: 12px;
+        margin-bottom: 4px;
     }
     .Switch button{
 
@@ -48,9 +48,6 @@
 }
 
 @media (max-width: 340px) {
-    .Switch {
-        margin-bottom: 10px;
-    }
 
     .Switch button {
         padding: 10px;

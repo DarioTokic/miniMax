@@ -21,8 +21,10 @@
 
 @media (max-width: 500px) {
     .About {
-        width: 90%;
-        padding: 16px;
+        width: 96%;
+        top: 55%;
+        padding: 12px;
+        font-size: 0.8rem;
     }
 
     .About button {

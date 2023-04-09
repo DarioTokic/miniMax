@@ -18,8 +18,7 @@ table {
     position: absolute;
     left: 50%;
     top: 50%;
-    margin-left: -160px;
-    margin-top: -160px;
+    transform: translate(-50%, -50%); /* Use transform to center the element */
     color: #fff;
 }
 
@@ -41,14 +40,12 @@ table tr td:last-child {
 
 @media (max-width: 500px) {
     td {
-        height: 80px;
-        width: 80px;
+        height: 60px;
+        width: 60px;
+        font-size: 40px;
     }
 
-    table {
-        margin-left: -130px;
-        margin-top: -130px;
-    }
+
 }
 
 @media (max-width: 340px) {
@@ -58,8 +55,4 @@ table tr td:last-child {
         font-size: 48px;
     }
 
-    table {
-        margin-left: -90px;
-        margin-top: -90px;
-    }
 }

@@ -1,5 +1,5 @@
 .App {
-    height: 100vh;
+    height: 100dvh;
     background-image: url(./minimaxWallpaper.png);
     background-size: cover;
     background-position: center;
@@ -21,7 +21,7 @@
 }
 
 .GameContainer{
-    height: 100vh;
+    height: 100dvh;
     background-image: url(./minimaxMoon.png);
     background-size: cover;
     background-position: center;
