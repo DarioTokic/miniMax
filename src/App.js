@@ -220,6 +220,8 @@ class App extends Component {
           <About clicked={() => this.showAboutHandler()}/>
         : null
         }
+
+        <a className="darioLogo" href="https://xabaras666.github.io/" target='blank'><img src="/darioLogo.png" alt="dariologo"/></a>
       </div>
     );
   }
