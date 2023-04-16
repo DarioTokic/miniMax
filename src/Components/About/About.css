@@ -9,6 +9,7 @@
     top: 50%;
     transform: translate(-50%, -50%); /* Use transform to center the element */
     border-radius: 5px;
+    user-select: none;
 }
 
 .About button {
