@@ -54,8 +54,8 @@ class App extends Component {
       window.addEventListener("deviceorientation", (e) => {
         const x = e.beta;     // rotation around x-axis
         const y = e.gamma;    // rotation around y-axis
-        el.style.backgroundPositionX = x * 5 + "px";
-        el.style.backgroundPositionY = y * 5 + "px";
+        el.style.backgroundPositionY = x * 5 + "px";
+        el.style.backgroundPositionX = y * 5 + "px";
       });
     } else if (this.isTouchDevice()) {
       el.addEventListener("touchmove", (e) => {
@@ -119,9 +119,12 @@ class App extends Component {
    * @param {string} firstPlayer 
    */
   changeFirstPlayer = (firstPlayer) => {
-    this.setState({firstPlayer})
-    this.setState({game: false})
-    this.setState({ending: ""})
+    if(this.state.firstPlayer !== firstPlayer) {
+      this.setState({firstPlayer})
+      this.setState({game: false})
+      this.setState({ending: ""})
+      this.refreshGame()
+    }
   }
 
 
@@ -130,8 +133,8 @@ class App extends Component {
    * @param {string} multiplayer 
    */
   changeMultiplayer = (multiplayer) => {
-    this.setState({multiplayer})
     this.setState({firstPlayer: "first"})
+    this.setState({multiplayer})
     this.refreshGame()
   }
 
